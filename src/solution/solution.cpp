@@ -4,6 +4,7 @@
 #include <chrono>
 #include <iostream>
 #include <thread>
+#include <cmath>
 
 int solver(std::shared_ptr<backend_interface::Tester> tester, bool preempt) {
   // Short example you can remove it
@@ -19,10 +20,11 @@ int solver(std::shared_ptr<backend_interface::Tester> tester, bool preempt) {
   });
   commands->add_data_callback([](const Point& point) {
     std::cout << "Command point: (" << point.x << ", " << point.y << ", " << point.z << ")\n";
+    double obrotWokolOsiPionowej = atan2(point.x, point.z);
+    double obrotWokolOsiPoziomej = atan2(point.y, sqrt((point.x* point.x + point.z* point.z)));
+    std::cout << "Katy:(" << obrotWokolOsiPionowej << ", " << obrotWokolOsiPoziomej << ")\n";
   });
-  motor1->send_data(100);
-  motor2->send_data(-50);
-  std::this_thread::sleep_for(std::chrono::milliseconds(250));
-  //
+  std::this_thread::sleep_for(std::chrono::seconds(15));
+  
   return 0;
 }

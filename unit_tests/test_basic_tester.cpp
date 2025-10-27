@@ -1,6 +1,9 @@
 #include <gtest/gtest.h>
 #include <chrono>
 #include <thread>
+#include <string>
+#include <iostream>
+
 #include "basic_tester.hpp"
 
 TEST(BasicTesterTest, CreationAndDestruction) {

@@ -6,7 +6,7 @@
 #include <string>
 #include <utility>
 #include <vector>
-
+#include <sstream>
 #include "basic_tester.hpp"
 #include "solver.hpp"
 #include "tester.hpp"
@@ -26,6 +26,7 @@ std::optional<std::vector<std::pair<double, Point>>> parse(T&& input_stream) {
       continue;
     }
     std::istringstream line_stream(line);
+
     double delay;
     Point point;
     line_stream >> delay >> point.x >> point.y >> point.z;

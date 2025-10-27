@@ -1,5 +1,6 @@
 #include <chrono>
 #include <exception>
+#include <string>
 #include <iostream>
 #include <utility>
 #include "basic_tester.hpp"

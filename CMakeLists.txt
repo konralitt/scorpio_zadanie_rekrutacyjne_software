@@ -4,6 +4,7 @@ project(scorpio_recruitment_task)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 
 # Exercise library
@@ -11,6 +12,8 @@ add_library(backend SHARED
   src/backend/motor.cpp
   src/backend/basic_tester.cpp
 )
+set_target_properties(backend PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 target_include_directories(backend PUBLIC
   include/backend_interface/
   include/backend/
@@ -25,6 +28,7 @@ target_include_directories(solution PRIVATE
   include/solution/
   include/backend_interface/
 )
+set_target_properties(solution PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 target_include_directories(solution PUBLIC include/solution_interface/)
 
 
